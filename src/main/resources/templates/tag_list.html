@@ -1,0 +1,14 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<h1>Tags</h1>
+<div th:each="tag: ${tags}">
+    <span th:text="'id: ' + ${tag.id}"></span>
+    <span th:text="'name: ' + ${tag.name}"></span>
+</div>
+<a href="/tag">Submit another tag</a>
+</body>
+</html>

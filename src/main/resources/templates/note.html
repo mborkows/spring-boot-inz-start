@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1>Note Form</h1>
+<form action="#" th:action="@{/note}" th:object="${note}" method="post">
+    <div>Title: <input type="text" th:field="*{title}" /></div>
+    <div>Body: <input type="text" th:field="*{body}" /></div>
+    <div th:each="tag : ${allTags}">
+        <input type="checkbox" th:field="*{tags}" th:value="${tag.id}" />
+        <label th:text="${tag.name}">example</label>
+    </div>
+    <div><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></div>
+</form>
+</body>
+</html>
