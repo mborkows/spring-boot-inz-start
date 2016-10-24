@@ -34,11 +34,11 @@ public class NoteController {
         note.setTags(new ArrayList<Tag>());
         model.addAttribute("note", new Note());
         model.addAttribute("allTags", tagRepo.findAll());
-        return "note";
+        return "huhuh";
     }
 
     @PostMapping("/note")
-    public String noteSubmit(@ModelAttribute Note note, Model model) {
+    public String noteSubmit(@ModelAttribute Note note) {
         noteRepo.save(note);
         return "redirect:/notes";
     }

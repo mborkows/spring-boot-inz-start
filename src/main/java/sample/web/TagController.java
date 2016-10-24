@@ -29,14 +29,14 @@ public class TagController {
     }
 
     @PostMapping("/tag")
-    public String tagSubmit(@ModelAttribute Tag tag, Model model){
+    public String tagSubmit(@ModelAttribute Tag tag){
         tagRepo.save(tag);
         return "redirect:/tags";
     }
 
     @GetMapping("/tags")
     public String showTags(Model model){
-        model.addAttribute("tags", tagRepo.findAll());
+        model.addAttribute("haha", tagRepo.findAll());
         return "tag_list";
     }
 }

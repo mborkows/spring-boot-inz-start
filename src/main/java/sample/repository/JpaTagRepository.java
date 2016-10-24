@@ -5,9 +5,9 @@
 //import javax.persistence.EntityManager;
 //import javax.persistence.PersistenceContext;
 //
-//import Tag;
 //
 //import org.springframework.stereotype.Repository;
+//import sample.domain.Tag;
 //
 //@Repository
 //class JpaTagRepository implements TagRepository {
