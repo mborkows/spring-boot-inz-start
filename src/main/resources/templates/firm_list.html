@@ -4,12 +4,12 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
 <body>
-<h1>Tags</h1>
-<div th:each="tag: ${haha}">
-    <span th:text="'id: ' + ${tag.id}"></span>
-    <span th:text="'name: ' + ${tag.name}"></span>
+<h1>Firm</h1>
+<div th:each="firm: ${firms}">
+    <span th:text="'id: ' + ${firm.id}"></span>
+    <span th:text="'name: ' + ${firm.name}"></span>
 </div>
-<a href="/tag">Submit another tag</a>
+<a href="/firm">Add firm</a>
 <a href="/note">Add note.</a>
 </body>
 </html>

@@ -23,7 +23,7 @@ public class JpaTagRepositoryIntegrationTests {
 
 	@Test
 	public void findsAllTags() {
-		List<Tag> tags = this.tagRepo.findAll();
+		Iterable<Tag> tags = this.tagRepo.findAll();
 		assertThat(tags).hasSize(3);
 		for (Tag tag : tags) {
 			assertThat(tag.getNotes().size()).isGreaterThan(0);

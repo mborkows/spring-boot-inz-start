@@ -23,7 +23,7 @@ public class JpaNoteRepositoryIntegrationTests {
 
 	@Test
 	public void findsAllNotes() {
-		List<Note> notes = this.noteRepo.findAll();
+		Iterable<Note> notes = this.noteRepo.findAll();
 		assertThat(notes).hasSize(4);
 		for (Note note : notes) {
 			assertThat(note.getTags().size()).isGreaterThan(0);
