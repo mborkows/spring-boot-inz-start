@@ -23,13 +23,18 @@ import java.util.Set;
 @Entity
 public class Firm {
 
-    private long id;
+    private int id;
     private String name;
     private Set<Employee> employees = new HashSet<Employee>();
 
+    public Firm(){}
+    public Firm(String name){
+        this.name = name;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    public long getId() {
+    public int getId() {
         return id;
     }
 

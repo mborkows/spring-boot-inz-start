@@ -9,11 +9,7 @@
     <span th:text="'id: ' + ${firm.id}"></span>
     <span th:text="'name: ' + ${firm.name}"></span>
 </div>
+<a th:href="@{'/firm/delete/'${firm.id}}"><span>Delete</span></a>
 <a href="/firm">Add firm</a>
-<form action="#" th:action="@{/firm_list}" th:object="${firm_to_delete}" method="post">
-    <p>Usun firme: <input type="text" th:field="*{firm_to_delete.id}" /></p>
-    <a th:href="@{'/users/doDelete/'${firm_to_delete.id}}"><span>Delete</span></a>
-</form>
-
 </body>
 </html>

@@ -34,10 +34,10 @@ public class Employee implements Serializable {
 
 
 
-    private long employee_id;
+    private int employee_id;
     private String name;
     private String surname;
-    private Post post;
+    private String post;
     private int age;
     private Set<ReportedTerm> reportedTerms = new HashSet<ReportedTerm>();    //kolekcja unikalnych obiektow reportedTerms
     private Firm firm;
@@ -46,7 +46,7 @@ public class Employee implements Serializable {
 
     }
 
-    public Employee(String name, String surname, Post post, int age) {
+    public Employee(String name, String surname, String post, int age) {
         this.name = name;
         this.surname = surname;
         this.post = post;
@@ -56,11 +56,11 @@ public class Employee implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
-    public long getEmployee_id() {
+    public int getEmployee_id() {
         return employee_id;
     }
 
-    public void setEmployee_id(long employee_id) {
+    public void setEmployee_id(int employee_id) {
         this.employee_id = employee_id;
     }
 
@@ -80,11 +80,11 @@ public class Employee implements Serializable {
         this.surname = surname;
     }
 
-    public Post getPost() {
+    public String getPost() {
         return post;
     }
 
-    public void setPost(Post post) {
+    public void setPost(String post) {
         this.post = post;
     }
 
@@ -115,8 +115,8 @@ public class Employee implements Serializable {
     }
 
     /*Stanowisko*/
-    public enum Post {
-        menager,
-        worker
-    }
+//    public enum Post {
+//        menager,
+//        worker
+//    }
 }

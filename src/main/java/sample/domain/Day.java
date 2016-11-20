@@ -12,20 +12,20 @@ import java.util.Set;
 @Table(name = "day")
 public class Day {
 
-    private long day_id;
+    private int day_id;
     private java.sql.Date day;
-    private Status status;
+    private String status;
     private Set<ReportedTerm> reportedTerms = new HashSet<ReportedTerm>(0);
 
     protected Day(){}
 
     @Id
     @Column(name = "id")
-    public long getDay_id() {
+    public int getDay_id() {
         return day_id;
     }
 
-    public void setDay_id(long day_id) {
+    public void setDay_id(int day_id) {
         this.day_id = day_id;
     }
 
@@ -37,11 +37,11 @@ public class Day {
         this.day = day;
     }
 
-    public Status getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(Status status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 
@@ -55,9 +55,9 @@ public class Day {
     }
 
 
-
-    private enum Status{
-        open,
-        close
-    }
+//
+//    private enum Status{
+//        open,
+//        close
+//    }
 }

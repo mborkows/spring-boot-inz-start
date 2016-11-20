@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import sample.domain.Firm;
 import sample.repository.FirmReposotory;
@@ -34,9 +35,16 @@ public class FirmController {
         return "redirect:/firms";
     }
 
+    @PostMapping("/firm/delete")
+    public String firmDelete(@PathVariable Long id) {
+        firmRepo.delete(id);
+        return "firms";
+    }
+
     @GetMapping("/firms")
     public String showFirms(Model model){
         model.addAttribute("firms", firmRepo.findAll());
+        model.addAttribute("firm_to_delete", new Firm());
         return "firm_list";
     }
 }

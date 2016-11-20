@@ -12,7 +12,7 @@ INSERT INTO day(id, day, status) VALUES ('2', '2002-02-02','open');
 INSERT INTO day(id, day, status) VALUES ('3', '2003-03-03','open');
 INSERT INTO day(id, day, status) VALUES ('4', '2004-04-04','open');
 
-INSERT INTO reportedTerm(beginTime, endTime, employee_id, day_id) VALUES ('08:00:00', '16:00:00', '1', '1');
-INSERT INTO reportedTerm(beginTime, endTime, employee_id, day_id) VALUES ('08:00:00', '16:00:00', '2', '2');
-INSERT INTO reportedTerm(beginTime, endTime, employee_id, day_id) VALUES ('08:00:00', '16:00:00', '3', '3');
-INSERT INTO reportedTerm(beginTime, endTime, employee_id, day_id) VALUES ('08:00:00', '16:00:00', '4', '4');
+INSERT INTO reported_term(begin_time, end_time, employee_id, day_id) VALUES ('08:00:00', '16:00:00', '1', '1');
+INSERT INTO reported_term(begin_time, end_time, employee_id, day_id) VALUES ('08:00:00', '16:00:00', '2', '2');
+INSERT INTO reported_term(begin_time, end_time, employee_id, day_id) VALUES ('08:00:00', '16:00:00', '3', '3');
+INSERT INTO reported_term(begin_time, end_time, employee_id, day_id) VALUES ('08:00:00', '16:00:00', '4', '4');

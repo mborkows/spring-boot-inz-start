@@ -1,0 +1,16 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<h1>Terms</h1>
+<div th:each="term: ${terms}">
+    <span th:text="'User id: ' + ${term.pk.employee.employee_id}"></span>
+    <span th:text="'Day id: ' + ${term.pk.day.day_id}"></span>
+    <span th:text="'Begin time: ' + ${term.begin_time}"></span>
+    <span th:text="'End time: ' + ${term.end_time}"></span>
+</div>
+<a href="/term">Submit another term</a>
+</body>
+</html>

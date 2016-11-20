@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Transient;
+import javax.persistence.Table;
 */
 
 import javax.persistence.AssociationOverride;
@@ -15,6 +16,7 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Transient;
+import javax.persistence.Table;
 import java.io.Serializable;
 import java.sql.Time;
 
@@ -23,6 +25,7 @@ import java.sql.Time;
  */
 
 @Entity
+@Table(name = "reported_term")
 @AssociationOverrides({
         @AssociationOverride(name = "pk.employee",
                 joinColumns = @JoinColumn(name = "employee_id")),
@@ -31,15 +34,15 @@ import java.sql.Time;
 public class ReportedTerm implements Serializable {
 
     private ReportedTermPK pk = new ReportedTermPK();
-    private Time beginTime;
-    private Time endTime;
+    private Time begin_time;
+    private Time end_time;
 
     public ReportedTerm(){
     }
 
-    public ReportedTerm(Time beginTime, Time endTime) {
-        this.beginTime = beginTime;
-        this.endTime = endTime;
+    public ReportedTerm(Time begin_time, Time end_time) {
+        this.begin_time = begin_time;
+        this.end_time = end_time;
     }
 
     @EmbeddedId
@@ -69,20 +72,20 @@ public class ReportedTerm implements Serializable {
         pk.setDay(day);
     }
 
-    public Time getBeginTime() {
-        return beginTime;
+    public Time getBegin_time() {
+        return begin_time;
     }
 
-    public void setBeginTime(Time beginTime) {
-        this.beginTime = beginTime;
+    public void setBegin_time(Time begin_time) {
+        this.begin_time = begin_time;
     }
 
-    public Time getEndTime() {
-        return endTime;
+    public Time getEnd_time() {
+        return end_time;
     }
 
-    public void setEndTime(Time endTime) {
-        this.endTime = endTime;
+    public void setEnd_time(Time end_time) {
+        this.end_time = end_time;
     }
 
 }

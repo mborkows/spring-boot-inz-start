@@ -17,7 +17,8 @@ import sample.repository.TagRepository;
 import java.util.ArrayList;
 
 @Controller
-public class NoteController {
+public class
+NoteController {
 
     private NoteRepository noteRepo;
     private TagRepository tagRepo;

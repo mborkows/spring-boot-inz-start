@@ -13,6 +13,15 @@ public class ReportedTermPK implements Serializable {
     private Employee employee;
     private Day day;
 
+    public ReportedTermPK(Employee e, Day d){
+        this.employee = e;
+        this.day = d;
+    }
+
+    public ReportedTermPK() {
+
+    }
+
     @ManyToOne
     public Employee getEmployee() {
         return employee;
