@@ -35,11 +35,6 @@ public class FirmController {
         return "redirect:/firms";
     }
 
-    @PostMapping("/firm/delete")
-    public String firmDelete(@PathVariable Long id) {
-        firmRepo.delete(id);
-        return "firms";
-    }
 
     @GetMapping("/firms")
     public String showFirms(Model model){
@@ -47,5 +42,13 @@ public class FirmController {
         model.addAttribute("firm_to_delete", new Firm());
         return "firm_list";
     }
+
+    @PostMapping("/firm/delete")
+    public String firmDelete(@PathVariable Long id) {
+        firmRepo.delete(id);
+        return "firms";
+    }
+
+
 }
 

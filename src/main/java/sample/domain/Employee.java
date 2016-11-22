@@ -8,8 +8,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.FetchType;
-import javax.persistence.CascadeType;
+import java.io.Serializable;
+import java.sql.Date;
+import java.sql.Timestamp;
+import java.util.HashSet;
+import java.util.Set;
+
 */
 
 import javax.persistence.Column;
@@ -19,9 +23,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.FetchType;
-import javax.persistence.CascadeType;
 import java.io.Serializable;
+import java.sql.Date;
+import java.sql.Timestamp;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -32,36 +36,35 @@ import java.util.Set;
 @Entity
 public class Employee implements Serializable {
 
-
-
-    private int employee_id;
+    private int id;
     private String name;
     private String surname;
-    private String post;
-    private int age;
-    private Set<ReportedTerm> reportedTerms = new HashSet<ReportedTerm>();    //kolekcja unikalnych obiektow reportedTerms
+    private Date birthday;
+    private String email;
+    private Timestamp createTime;
+
     private Firm firm;
+    private Position position;
+    private Set<Declaration> declarations = new HashSet<Declaration>();
 
     protected Employee(){
 
     }
 
-    public Employee(String name, String surname, String post, int age) {
+    public Employee(String name, String surname) {
         this.name = name;
         this.surname = surname;
-        this.post = post;
-        this.age = age;
     }
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     public int getEmployee_id() {
-        return employee_id;
+        return id;
     }
 
-    public void setEmployee_id(int employee_id) {
-        this.employee_id = employee_id;
+    public void setEmployee_id(int id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -80,20 +83,28 @@ public class Employee implements Serializable {
         this.surname = surname;
     }
 
-    public String getPost() {
-        return post;
+    public Date getBirthday() {
+        return birthday;
     }
 
-    public void setPost(String post) {
-        this.post = post;
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
     }
 
-    public int getAge() {
-        return age;
+    public String getEmail() {
+        return email;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public Timestamp getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Timestamp createTime) {
+        this.createTime = createTime;
     }
 
     @ManyToOne
@@ -105,18 +116,21 @@ public class Employee implements Serializable {
         this.firm = firm;
     }
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "pk.employee", cascade = CascadeType.ALL)
-    public Set<ReportedTerm>   getReportedTerms() {
-        return this.reportedTerms;
+    @ManyToOne
+    public Position getPosition(){
+        return position;
     }
 
-    public void setReportedTerms(Set<ReportedTerm> reportedTerms) {
-        this.reportedTerms = reportedTerms;
+    public void setPosition(Position position) {
+        this.position = position;
     }
 
-    /*Stanowisko*/
-//    public enum Post {
-//        menager,
-//        worker
-//    }
+    @OneToMany(mappedBy = "employee")
+    public Set<Declaration> getDeclarations() {
+        return declarations;
+    }
+
+    public void setDeclarations(Set<Declaration> declarations) {
+        this.declarations = declarations;
+    }
 }

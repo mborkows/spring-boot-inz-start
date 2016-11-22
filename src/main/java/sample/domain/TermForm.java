@@ -1,5 +1,6 @@
 package sample.domain;
 
+import java.sql.Date;
 import java.sql.Time;
 
 /**
@@ -8,7 +9,7 @@ import java.sql.Time;
 public class TermForm {
 
     private int employee_id;
-    private int day_id;
+    private Date day;
     private Time begin_time;
     private Time end_time;
 
@@ -24,12 +25,12 @@ public class TermForm {
         this.employee_id = employee_id;
     }
 
-    public int getDay_id() {
-        return day_id;
+    public Date getDay_id() {
+        return day;
     }
 
-    public void setDay_id(int day_id) {
-        this.day_id = day_id;
+    public void setDay_id(Date day) {
+        this.day = day;
     }
 
     public Time getBegin_time() {

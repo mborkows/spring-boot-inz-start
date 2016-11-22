@@ -1,35 +1,24 @@
 package sample.domain;
 
-/*
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import java.sql.Time;
-import java.util.HashSet;
-import java.util.Set;
-*/
-
 import javax.persistence.*;
-import java.sql.Timestamp;
 import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Created by marek on 07.11.16.
- * Tabel contains informations about different firms
+ * Created by marek on 22.11.16.
  */
 @Entity
-public class Firm {
+public class Position {
 
     private int id;
     private String name;
-    private Timestamp create_time;
-
+    private double salary;
     private Set<Employee> employees = new HashSet<Employee>();
-    public Firm(){}
-    public Firm(String name){
+
+    public Position(){
+
+    }
+    public Position(String name){
         this.name = name;
     }
 
@@ -51,15 +40,15 @@ public class Firm {
         this.name = name;
     }
 
-    public Timestamp getCreate_time() {
-        return create_time;
+    public double getSalary() {
+        return salary;
     }
 
-    public void setCreate_time(Timestamp create_time) {
-        this.create_time = create_time;
+    public void setSalary(double salary) {
+        this.salary = salary;
     }
 
-    @OneToMany(mappedBy = "firm")
+    @OneToMany(mappedBy = "position")
     public Set<Employee> getEmployees() {
         return employees;
     }
@@ -67,4 +56,5 @@ public class Firm {
     public void setEmployees(Set<Employee> employees) {
         this.employees = employees;
     }
+
 }
