@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<h1>Declaration Form</h1>
+<h2 th:inline="text">To day is: [[${#dates.format(#dates.createNow(), 'dd MMM yyyy HH:mm')}]]</h2>
+<form action="#" th:action="@{/userWeek}" th:object="${wfd}" method="post">
+    <table rules="all">
+        <tr>
+            <td>#</td>
+            <td>00:00 - 08:00</td>
+            <td>08:00-16:00</td>
+            <td>16:00-24:00</td>
+            <td></td>
+        </tr>
+
+        <tr th:each="day, iterStat : ${wfd.week}" th:class="${iterStat.index}">
+
+            <td align="right">
+                <span th:text="${#calendars.dayOfWeekNameShort(day)}"></span>
+                <span th:text="${#calendars.format(day,'dd MMMM yyyy')}">13 May 2011</span>
+            </td>
+            <td align="center">
+                <div th:switch="*{approved[__${iterStat.index}__][0]}">
+                    <p th:case="true">
+                        <input type="hidden" th:field="*{declaration[__${iterStat.index}__][0]}" value="true"/>
+                        <input type="checkbox" checked="checked" disabled="disabled"/>
+                    </p>
+                    <p th:case="false">
+                        <input type="checkbox" th:field="*{declaration[__${iterStat.index}__][0]}" value="true"/>
+                    </p>
+                </div>
+            </td>
+
+            <td align="center">
+                <div th:switch="*{approved[__${iterStat.index}__][1]}">
+                    <p th:case="true">
+                        <input type="hidden" th:field="*{declaration[__${iterStat.index}__][1]}" value="true"/>
+                        <input type="checkbox" checked="checked" disabled="disabled"/>
+                    </p>
+                    <p th:case="false">
+                        <input type="checkbox" th:field="*{declaration[__${iterStat.index}__][1]}" value="true"/>
+                    </p>
+                </div>
+            </td>
+
+            <td align="center">
+                <div th:switch="*{approved[__${iterStat.index}__][2]}">
+                    <p th:case="true">
+                        <input type="hidden" th:field="*{declaration[__${iterStat.index}__][2]}" value="true"/>
+                        <input type="checkbox" checked="checked" disabled="disabled"/>
+                    </p>
+                    <p th:case="false">
+                        <input type="checkbox" th:field="*{declaration[__${iterStat.index}__][2]}" value="true"/>
+                    </p>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <div><input type="submit" value="Submit"/> <input type="reset" value="Reset"/></div>
+</form>
+</body>
+</html>
