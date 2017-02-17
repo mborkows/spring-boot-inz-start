@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<h1>Manager View!</h1>
+<h2 th:inline="text">Today is: [[${#dates.format(#dates.createNow(), 'dd MMM yyyy HH:mm')}]]</h2>
+<!--<form action="#" th:action="@{/managerView}" th:object="${mwf}" method="post">-->
+    <table rules="all">
+        <tr>
+            <td>#</td>
+            <th:block th:each="day : ${week}">
+                <td th:inline="text">
+                    [[${day}]]
+                    <br>00:00-08:00</br>
+                </td>
+                <td th:inline="text">
+                    [[${day}]]
+                    <br>08:00-16:00</br>
+                </td>
+                <td th:inline="text">
+                    [[${day}]]
+                    <br>16:00-24:00</br>
+                </td>
+            </th:block>
+        </tr>
+
+        <!--Wyswietla ale nie zwraca managerWeekForm-->
+        <tr th:each="i: ${#numbers.sequence(0, 2)}">
+            <td align="right" th:inline="text">
+                [[${workers[i].name}]]
+            </td>
+            <!--<td th:id="td_tmp" th:each="j: ${#numbers.sequence(0, 20)}">-->
+                <!--<th:block th:unless="*{declarations[__${i}__][__${j}__]} == true">-->
+                    <!--<input type="hidden" th:field="*{declarations[__${i}__][__${j}__]}" value="false"/>-->
+                    <!--<input type="hidden" th:field="*{approved[__${i}__][__${j}__]}" value="false"/>-->
+                <!--</th:block>-->
+                <!--<th:block th:if="*{declarations[__${i}__][__${j}__]} == true">-->
+                    <!--<input type="hidden" th:field="*{declarations[__${i}__][__${j}__]}" value="true"/>-->
+                    <!--<input type="checkbox" th:field="*{approved[__${i}__][__${j}__]}" value="true"/>-->
+                <!--</th:block>-->
+            <!--</td>-->
+        </tr>
+    </table>
+    <!--<p><input type="submit" value="Submit"/> <input type="reset" value="Reset"/></p>-->
+<!--</form>-->
+</body>
+</html>
